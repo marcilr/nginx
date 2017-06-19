@@ -8,8 +8,20 @@ NGINX
 flawless
 application delivery for the modern web
 
+NGINX is the heart of the modern web, powering half of the world’s
+busiest sites and applications.  The company's comprehensive
+application delivery platform combines load balancing, content
+caching, web serving, security controls, and monitoring in one
+easy-to-use software package.
+--www.nginx.com/blog/introduction-to-microservices/
+
 
 Links
 =====
+Introduction to Microservices
+microservices, monolithic application, Docker, cloud
+by Chris Richardson - May 19, 2015
+https://www.nginx.com/blog/introduction-to-microservices/
+
 NGINX
 https://www.nginx.com/
