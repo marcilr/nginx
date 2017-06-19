@@ -8,6 +8,11 @@ NGINX related links
 
 Links
 =====
+Introduction to Microservices
+microservices, monolithic application, Docker, cloud
+by Chris Richardson - May 19, 2015
+https://www.nginx.com/blog/introduction-to-microservices/
+
 NGINX
 flawless
 application delivery for the modern web
