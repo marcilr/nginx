@@ -8,6 +8,11 @@ NGINX related links
 
 Links
 =====
+Building Microservices: Using an API Gateway
+microservices, API gateway
+by Chris Richardson - June 15, 2015
+https://www.nginx.com/blog/building-microservices-using-an-api-gateway/
+
 Introduction to Microservices
 microservices, monolithic application, Docker, cloud
 by Chris Richardson - May 19, 2015
@@ -17,3 +22,6 @@ NGINX
 flawless
 application delivery for the modern web
 https://www.nginx.com/
+
+Pattern: Microservice Architecture
+http://microservices.io/patterns/microservices.html
