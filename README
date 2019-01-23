@@ -9,10 +9,13 @@ flawless
 application delivery for the modern web
 
 
-Links
-=====
+Filelist
+========
 links.txt
   NGINX related links
 
-NGINX
-https://www.nginx.com/
+syntax/
+  Syntax for nginx
+
+links.txt
+  NGINX related links

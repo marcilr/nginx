@@ -9,6 +9,5 @@ NGINX related links
 Links
 =====
 NGINX
-flawless
-application delivery for the modern web
+flawless application delivery for the modern web
 https://www.nginx.com/
