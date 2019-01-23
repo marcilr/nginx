@@ -1,0 +1,40 @@
+blockips.txt
+Created Wed Jan 23 09:47:52 AKST 2019
+by Raymond E. Marcil <ray.marcil@alaska.gov>
+
+
+Block IPs
+
+
+To block IPs in nginx append the addresse(s) to block to:
+  /etc/nginx/conf.d/blockips.conf
+
+For example to block 189.90.184.89:
+
+# pwd
+/etc/nginx/conf.d
+# cat blockips.conf
+...
+# Block requested by Erik Bobo, Information Security Office, Tue Jan 22, 2019
+# Oil & Gas reported SQL injection attacks.  Tracked in SDM Incident 143022
+deny 189.90.184.89/24;
+#
+
+# /etc/init.d/nginx reload
+
+
+NOTE: It will do a hot reload of the configuration without downtime.
+If you have pending requests, then there will be lingering nginx
+processes that will handle those connections before it dies, so it's
+an extremely graceful way to reload configs.
+--serverfault.com/questions/378581/
+
+
+
+Links
+=====
+Nginx config reload without downtime
+https://serverfault.com/questions/378581/nginx-config-reload-without-downtime
+
+
+
