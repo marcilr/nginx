@@ -8,6 +8,9 @@ NGINX related links
 
 Links
 =====
+How to Create Tempory and Permanent Redirects with Nginx
+https://www.digitalocean.com/community/tutorials/how-to-create-temporary-and-permanent-redirects-with-nginx
+
 NGINX
 flawless application delivery for the modern web
 https://www.nginx.com/
