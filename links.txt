@@ -8,9 +8,28 @@ NGINX related links
 
 Links
 =====
+Getting Started with NGINX - Part 1: Installation and Basic Setup
+Updated Friday, June 1, 2018 by Linode
+https://www.linode.com/docs/web-servers/nginx/nginx-installation-and-basic-setup/
+
+Getting Started with NGINX - Part 2: (Slightly More) Advanced Configurations
+Part 3: Enable TLS for HTTPS Connections
+Updated Tuesday, September 25, 2018 by Linode
+https://www.linode.com/docs/web-servers/nginx/slightly-more-advanced-configurations-for-nginx/
+
 How to Create Tempory and Permanent Redirects with Nginx
 https://www.digitalocean.com/community/tutorials/how-to-create-temporary-and-permanent-redirects-with-nginx
 
 NGINX
 flawless application delivery for the modern web
 https://www.nginx.com/
+
+NGINX docs
+https://nginx.org/en/docs/http/ngx_http_proxy_module.html
+
+NGINX admin guide
+https://www.nginx.com/resources/admin-guide/content-caching/
+
+NGINX blog
+https://www.nginx.com/blog/nginx-caching-guide/
+
