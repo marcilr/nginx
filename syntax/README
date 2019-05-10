@@ -11,3 +11,5 @@ blockips.txt
   To block IPs in nginx append the addresse(s) to block to:
     /etc/nginx/conf.d/blockips.conf
 
+X-Forward-For
+  Syntax for returning IP addresses over reverse proxies
