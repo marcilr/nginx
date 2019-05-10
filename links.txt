@@ -33,3 +33,6 @@ https://www.nginx.com/resources/admin-guide/content-caching/
 NGINX blog
 https://www.nginx.com/blog/nginx-caching-guide/
 
+NGINX support
+http://nginx.org/en/support.html
+
