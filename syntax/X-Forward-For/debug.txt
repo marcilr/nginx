@@ -1,0 +1,138 @@
+debug.txt
+Created Fri May 10 10:53:16 AKDT 2019
+Copyright (C) 2019 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+X-Forwarded-For debugging
+
+
+X-Forwarded-For configuration on webdev:
+
+[root@dnratwwebdev conf.d]# pwd
+/etc/nginx/conf.d
+[root@dnratwwebdev conf.d]# grep proxy_add_x *
+proxyHeaders.conf:	proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; ## CGI.REMOTE_ADDR
+[root@dnratwwebdev conf.d]# 
+
+
+Fri May 10 12:47:03 AKDT 2019
+=============================
+Check webdev's log:
+[root@dnratwwebdev conf.d]# tail /var/log/nginx/error.log
+...
+2019/05/10 14:24:08 [warn] 1439#1439: could not build optimal proxy_headers_hash, 
+you should increase either proxy_headers_hash_max_size: 512
+or proxy_headers_hash_bucket_size: 64; ignoring proxy_headers_hash_bucket_size
+2019/05/10 14:24:08 [emerg] 1439#1439: unknown "proxy_add_x" variable
+[root@dnratwwebdev conf.d]#
+
+[root@dnratwwebdev conf.d]# pwd
+/etc/nginx/conf.d
+[root@dnratwwebdev conf.d]# grep -ri proxy_headers_hash
+[root@dnratwwebdev conf.d]# 
+
+[root@dnratwwebdev conf.d]# grep -ri proxy_headers_hash_max_size *
+[root@dnratwwebdev conf.d]# 
+
+
+webdev's nginx does not have ssl:
+cd /etc/nginx/conf.d
+grep -rn ssl_protocol *
+<nothing>
+
+Found that the modsec and SSL differences between dev or test, and prod
+is a serious  detractor.
+
+webprod works:
+[root@dnratwwebprod nginx]$  nginx -c /etc/nginx/nginx.conf -t
+nginx: [warn] could not build optimal proxy_headers_hash, you should increase either proxy_headers_hash_max_size: 512 or proxy_headers_hash_bucket_size: 64; ignoring proxy_headers_hash_bucket_size
+nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+[root@dnratwwebprod nginx]$
+
+Generates error:
+  [root@dnratwwebtest nginx]$ nginx -c /etc/nginx/nginx.conf -t
+  nginx: [warn] could not build optimal proxy_headers_hash, you should increase either proxy_headers_hash_max_size: 512 or proxy_headers_hash_bucket_size: 64; ignoring proxy_headers_hash_bucket_size
+  nginx: [emerg] unknown "proxy_add_x" variable
+  nginx: configuration file /etc/nginx/nginx.conf test failed
+  [root@dnratwwebtest nginx]$
+
+  [root@dnratwwebdev etc]# nginx -c /etc/nginx-webprod/nginx.conf -t
+  nginx: [emerg] open() "/etc/nginx-webprod/nginx.conf" failed (2: No such file or directory)
+  nginx: configuration file /etc/nginx-webprod/nginx.conf test failed
+  [root@dnratwwebdev etc]# nginx -c /etc/nginx-webprod-20190510/nginx.conf -t
+  nginx: [emerg] "modsecurity_rules_file" directive Failed to open the file: /etc/nginx/conf.d/modsec_includes.conf
+  in /etc/nginx-webprod-20190510/nginx.conf:229
+  nginx: configuration file /etc/nginx-webprod-20190510/nginx.conf test failed
+  [root@dnratwwebdev etc]#
+
+
+[root@dnratwwebdev etc]# diff -ri nginx nginx-webprod-20190510 >> diff-20190510.txt
+[root@dnratwwebdev etc]# grep -ni Forward diff-20190510.txt 
+373:>     proxy_set_header X-Forwarded-For '$realip_remote_addr';
+1727:<     proxy_set_header X-Forwarded-For 'dev.dnr.alaska.gov';
+1730:>     proxy_set_header X-Forwarded-For 'dnr.alaska.gov';
+1751:< #    proxy_set_header X-Forwarded-For 'dev.dnr.alaska.gov';
+1758:<     proxy_set_header X-Forwarded-For 'dev.dnr.alaska.gov';
+1766:>     proxy_set_header X-Forwarded-For 'dnr.alaska.gov';
+1790:<     proxy_set_header X-Forwarded-For $remote_addr;
+1801:<     proxy_set_header X-Forwarded-For $remote_addr;
+1830:<     proxy_set_header X-Forwarded-For $remote_addr;
+1867:>     proxy_set_header X-Forwarded-For $remote_addr;
+1906:< 	proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; ## CGI.REMOTE_ADDR
+1908:>     proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; ## CGI.REMOTE_ADDR
+[root@dnratwwebdev etc]# 
+
+
+[root@dnratwwebdev etc]# grep Only diff-20190510.txt | \
+grep -v modsecurity | grep -v cer | grep -v crt | \
+grep -v key | grep -v ssl | grep -v PRIOR | grep -v NEW
+Only in nginx/conf.d: corstiles.conf
+Only in nginx-webprod-20190510/conf.d: error_pages.conf
+Only in nginx-webprod-20190510/conf.d: modsec_includes.conf
+< SecRuleEngine DetectionOnly
+> #SecRuleEngine DetectionOnly
+Only in nginx/conf.d: ReportLocations.conf
+Only in nginx: fastcgi_temp
+Only in nginx-webprod-20190510: landsales.conf-ORIG
+Only in nginx: proxy_temp
+Only in nginx-webprod-20190510: rewrites.conf-BACKUP-20190320
+Only in nginx: scgi_temp
+Only in nginx: uwsgi_temp
+[root@dnratwwebdev etc]# 
+
+
+
+Links
+=====
+Getting Started with NGINX - Part 1: Installation and Basic Setup
+Updated Friday, June 1, 2018 by Linode
+https://www.linode.com/docs/web-servers/nginx/nginx-installation-and-basic-setup/
+
+Getting Started with NGINX - Part 2: (Slightly More) Advanced Configurations
+Part 3: Enable TLS for HTTPS Connections
+Updated Tuesday, September 25, 2018 by Linode
+https://www.linode.com/docs/web-servers/nginx/slightly-more-advanced-configurations-for-nginx/
+
+
+
+How to Configure NGINX
+Updated Friday, April 5, 2019 by Linode
+Very nice page.
+https://www.linode.com/docs/web-servers/nginx/how-to-configure-nginx/
+
+nginx -c /etc/nginx/nginx.conf -t
+Some interesting details
+https://stackoverflow.com/questions/29279084/nginx-proxy-add-x-forwarded-for-and-real-ip-header
+
+Nginx: How to Disable the SSL v3 Protocol
+https://www.digicert.com/ssl-support/nginx-disabling-ssl-v3.htm
+
+NGINX Plus Reference Guide
+NGINX Plus - release 17, based on 1.15.7 core
+December 7, 2018
+Nginx, Inc.
+https://www.nginx.com/wp-content/uploads/2018/08/nginx-modules-reference-r17.pdf
+
+X-Forwarded-For
+https://www.nginx.com/resources/wiki/start/topics/examples/forwarded/
