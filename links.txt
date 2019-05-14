@@ -30,6 +30,14 @@ https://nginx.org/en/docs/http/ngx_http_proxy_module.html
 NGINX admin guide
 https://www.nginx.com/resources/admin-guide/content-caching/
 
+NGINX Amplify
+What Is NGINX Amplify?
+NGINX Amplify is a SaaS‑based monitoring tool for the open source
+NGINX software and NGINX Plus. With NGINX Amplify you can monitor
+performance, keep track of infrastructure assets, and improve
+configuration with static analysis.
+https://www.nginx.com/products/nginx-amplify/
+
 NGINX blog
 https://www.nginx.com/blog/nginx-caching-guide/
 
