@@ -1,0 +1,12 @@
+links.txt
+Created Fri May 10 10:53:16 AKDT 2019
+Copyright (C) 2019 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+X-Forwarded-For related links
+
+
+Links
+=====
+X-Forwarded-For
+https://www.nginx.com/resources/wiki/start/topics/examples/forwarded/
