@@ -1,0 +1,21 @@
+reload.txt
+Created Wed May 22 07:50:48 AKDT 2019
+Copyright (C) 2019 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+Reload nginx configuration
+
+
+Run service nginx reload or /etc/init.d/nginx reload
+
+It will do a hot reload of the configuration without downtime.
+If you have pending requests, then there will be lingering nginx
+processes that will handle those connections before it dies, so
+it's an extremely graceful way to reload configs.
+
+Sometimes you may want to prepend with sudo
+
+--edited Aug 22 '13 at 2:53
+  answered Apr 11 '12 at 17:24
+  Hengjie
+  https://serverfault.com/questions/378581/nginx-config-reload-without-downtime
