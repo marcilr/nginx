@@ -21,5 +21,5 @@ reload.txt
   it's an extremely graceful way to reload configs.
   https://serverfault.com/questions/378581/nginx-config-reload-without-downtime
 
-X-Forward-For
+X-Forward-For/
   Syntax for returning IP addresses over reverse proxies
