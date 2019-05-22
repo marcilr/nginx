@@ -11,5 +11,15 @@ blockips.txt
   To block IPs in nginx append the addresse(s) to block to:
     /etc/nginx/conf.d/blockips.conf
 
+reload.txt
+  Reload nginx configuration
+  Run service nginx reload or /etc/init.d/nginx reload
+
+  It will do a hot reload of the configuration without downtime.
+  If you have pending requests, then there will be lingering nginx  
+  processes that will handle those connections before it dies, so
+  it's an extremely graceful way to reload configs.
+  https://serverfault.com/questions/378581/nginx-config-reload-without-downtime
+
 X-Forward-For
   Syntax for returning IP addresses over reverse proxies
