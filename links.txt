@@ -8,6 +8,10 @@ NGINX related links
 
 Links
 =====
+10 Most Used Nginx Commands Every Linux User Must Know
+by Aaron Kili | Published: April 23, 2019 | Last Updated: April 23, 2019
+https://www.tecmint.com/useful-nginx-command-examples/
+
 Getting Started with NGINX - Part 1: Installation and Basic Setup
 Updated Friday, June 1, 2018 by Linode
 https://www.linode.com/docs/web-servers/nginx/nginx-installation-and-basic-setup/
