@@ -48,3 +48,7 @@ https://www.nginx.com/blog/nginx-caching-guide/
 NGINX support
 http://nginx.org/en/support.html
 
+Q: NGINX - Dynamically mapping multiple different 
+domain names through 'map' to use as “server_name”
+https://serverfault.com/questions/857111/q-nginx-dynamically-mapping-multiple-different-domain-names-through-map-to
+
