@@ -52,3 +52,5 @@ Q: NGINX - Dynamically mapping multiple different
 domain names through 'map' to use as “server_name”
 https://serverfault.com/questions/857111/q-nginx-dynamically-mapping-multiple-different-domain-names-through-map-to
 
+Virtual Hosts on nginx (CSC309)
+https://gist.github.com/soheilhy/8b94347ff8336d971ad0
