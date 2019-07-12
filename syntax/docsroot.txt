@@ -1,0 +1,26 @@
+docsroot.txt
+Created Fri Jul 12 13:57:48 AKDT 2019
+Copyright (C) 2019 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+Nginx configuration files often references $docsroot
+that configures nginx's document root
+
+  $ cd /etc/nginx/sites-available
+  $ grep parks *
+  sdenali.conf:    root $docsroot/parks;
+  sdenali.conf:    return 301 http://$main_server/parks/$request_uri;
+  $
+
+  From above looks like $docsroot/parks
+    ===> /mnt/webdocs/webprod/parks
+
+  $docsroot configured in:
+    /etc/nginx/conf.d/locations.conf:1
+    set $docsroot "/mnt/webdocs/webprod";      <===
+    set $secdocsroot "/mnt/webdocs/sslprod";
+    set $intdocsroot "/mnt/webdocs/intprod";
+    set $tomdocsroot "/mnt/webdocs/tomprod";
+    set $percdocsroot "/mnt/webdocs/wcmprod";
+    set $forestrydocsroot "/mnt/webdocs/webprod/forestry";
+
