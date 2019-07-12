@@ -8,6 +8,19 @@ Filelist
 Complete_NGINX-Cookbook.pdf (3.4MB)
   The Complete NGINX Cookbook
   by Derek DeJonghe
+  The Complete NGINX Cookbook, the de facto reference for
+  both beginner and advanced topics, has been updated for
+  2019.
+
+  This updated version includes new open source features like
+  gRPC support, HTTP/2 server push, and the Random with Two Choices
+  load-balancing algorithm for clustered environments, as well as
+  new NGINX Plus features like support for state sharing, the NGINX
+  Plus API, and key-value stores.
+  --Compete Nginx Cookbook
+    2019 Update
+    NGINX News, O'Reilly
+    https://pages.nginx.com/index.php/email/emailWebview
   In this ebook you will learn:
   o How to configure content caching, load balancing,
     monitoring, high availability (HA), the Random with
