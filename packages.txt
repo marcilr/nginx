@@ -1,0 +1,16 @@
+packages.txt
+Created Mon Aug  5 08:35:23 AKDT 2019
+Copyright (C) 2019 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+Debian 9.9 stretch amd64 nginx packages
+
+
+Packages
+========
+nginx - small, powerful, scalable web/proxy server
+nginx-common - small, powerful, scalable web/proxy server - common files
+nginx-doc - small, powerful, scalable web/proxy server - documentation
+nginx-extras - nginx web/proxy server (extended version)
+nginx-full - nginx web/proxy server (standard version)
+nginx-light - nginx web/proxy server (basic version)
