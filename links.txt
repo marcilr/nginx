@@ -51,12 +51,20 @@ https://www.nginx.com/blog/nginx-caching-guide/
 NGINX support
 http://nginx.org/en/support.html
 
+nginx.conf
+Full example configuration
+https://www.nginx.com/resources/wiki/start/topics/examples/full/
+
 Parsing access.log and error.logs using linux commands
 https://easyengine.io/tutorials/nginx/log-parsing/
 
 Q: NGINX - Dynamically mapping multiple different 
 domain names through 'map' to use as “server_name”
 https://serverfault.com/questions/857111/q-nginx-dynamically-mapping-multiple-different-domain-names-through-map-to
+
+Understanding NGINX
+HTTP Proxying, load balancing, buffering, and caching
+https://www.digitalocean.com/community/tutorials/understanding-nginx-http-proxying-load-balancing-buffering-and-caching
 
 Virtual Hosts on nginx (CSC309)
 https://gist.github.com/soheilhy/8b94347ff8336d971ad0
