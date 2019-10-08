@@ -12,3 +12,26 @@ Configuring Logging
 This section describes how to configure logging of errors 
 and processed requests in NGINX Open Source and NGINX Plus.
 https://docs.nginx.com/nginx/admin-guide/monitoring/logging/
+
+Nginx, awstats and request time
+How can I tune nginx to write request time to logs such that
+awstats can show time taken for each request?
+Also, how can I see requests by time taken in awstats?
+As @Vladimir mentioned, to logs request time, edit your log_format directive as belows:
+log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+                      '$status $body_bytes_sent "$http_referer" '
+                      '"$http_user_agent" "$http_x_forwarded_for"'
+                      ' $request_time';
+and set the corresponding variables for LogFormat in awstats configuration file:
+LogFormat="%host %other %host_r %time1 %methodurl %code %bytesd %refererquot %uaquot %other %extra1"
+Here is an extra1 section example:
+
+ExtraSectionName1="Time to serve requests (seconds)"
+ExtraSectionCodeFilter1=""
+ExtraSectionFirstColumnTitle1="Number of seconds to serve the request"
+ExtraSectionFirstColumnValues1="extra1,(.*)"
+ExtraSectionStatTypes1="H"
+
+Building report:
+awstats.pl -config=model -output -staticlinks > awstats.localhost.html
+https://serverfault.com/questions/318300/nginx-awstats-and-request-time
