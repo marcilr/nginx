@@ -16,6 +16,14 @@ easy-to-use software package.
 --www.nginx.com/blog/introduction-to-microservices/
 
 
+Nginx, pronounced like “engine-ex”, is an open-source web server that, 
+since its initial success as a web server, is now also used as a 
+reverse proxy, HTTP cache, and load balancer.
+--What Is Nginx? A Basic Look at What It Is and How It Works
+  Last updated: January 26, 2022
+  https://kinsta.com/knowledgebase/what-is-nginx/
+
+
 Links
 =====
 Introduction to Microservices
